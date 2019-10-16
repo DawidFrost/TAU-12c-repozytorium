@@ -4,6 +4,7 @@ import pl.edu.pjatk.tau.domain.Movie;
 import org.junit.Before;
 import org.junit.Test;
 import pl.edu.pjatk.tau.service.MovieService;
+import pl.edu.pjatk.tau.service.MovieServiceImpl;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,9 +15,9 @@ public class MovieServiceTest {
 
     @Before
     public void init() {
-        service = new BookServiceImpl();
-        movie_1 = new Movie("Jan Kowalski", "Book1", "978-1-4028-9462-6");
-        movie_2 = new Movie("Jan Lisowski", "Book2", "978-1-4028-9462-4");
+        service = new MovieServiceImpl();
+        movie_1 = new Movie("TestName_1", "Type1", "Director1");
+        movie_2 = new Movie("TestName_2", "Type2", "Director1");
     }
 
 
