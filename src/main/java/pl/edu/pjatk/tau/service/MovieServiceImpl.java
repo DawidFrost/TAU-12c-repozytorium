@@ -13,12 +13,12 @@ public class MovieServiceImpl implements MovieService {
     private static Integer counterID = 0;
     private static List<Movie> db = new ArrayList<>();
 
-    public List<Movie> getAll() {
+    public List<Movie> readAll() {
         return db;
     }
 
 
-    public Movie get(Integer id) {
+    public Movie read(Integer id) {
         Optional<Movie> movie = findByID(id);
 
         if (movie.isPresent()) {
@@ -48,7 +48,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     public void delete(Integer id) {
-        Movie movie = get(id);
+        Movie movie = read(id);
         db.remove(movie);
     }
 
@@ -57,7 +57,7 @@ public class MovieServiceImpl implements MovieService {
         db = new ArrayList<>();
     }
 
-    public Integer add(Movie movie) {
+    public Integer create(Movie movie) {
         if(movieExists(movie)) {
             throw new IllegalArgumentException("Movie exists in database");
         }

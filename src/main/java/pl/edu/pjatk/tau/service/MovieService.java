@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface MovieService {
 
-    Integer add(Movie movie);
+    Integer create(Movie movie);
 
-    List<Movie> getAll();
+    List<Movie> readAll();
 
-    Movie get(Integer id);
+    Movie read(Integer id);
 
     Integer update(Movie movie);
 
