@@ -23,7 +23,7 @@ public class MovieServiceTest {
 
     @Test
     void canAddovie(){
-        service.add(movie_1);
+        service.create(movie_1);
         assertThat(movie_1.getId()).isNotNull();
     }
 
