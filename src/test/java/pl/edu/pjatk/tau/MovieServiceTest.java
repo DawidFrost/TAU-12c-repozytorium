@@ -7,7 +7,7 @@ import org.junit.Test;
 import pl.edu.pjatk.tau.service.MovieService;
 import pl.edu.pjatk.tau.service.MovieServiceImpl;
 
-import java.util.ArrayList;
+
 import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,21 +28,17 @@ public class MovieServiceTest {
         movie_3 = new Movie("Name_3", "Type3", "Director3");
     }
 
-    @Test
-    public void delete() {
+    @Test(expected = NoSuchElementException.class)
+    public void deleteTest() {
 
-        Integer id1 = service.create(movie_1);
-        Integer id2 = service.create(movie_2);
+        service.create(movie_1);
+        Integer mId = service.create(movie_2);
 
-
-        service.delete(id2);
-
-        assertThatExceptionOfType(NoSuchElementException.class)
-                .isThrownBy( () -> service.read(id1) );
-        
-        assertThat(service.read(id2)).isNull();
-        assertThat(service.readAll()).hasSize(1);
+        service.delete(mId);
+        service.read(mId);
     }
+
+
 
     @Test
     public void readAllTest() {
@@ -58,8 +54,8 @@ public class MovieServiceTest {
 
     @Test
     public void readMovie() {
-        service.create(movie_1);
-        Movie testMovie = service.read(0);
+        Integer mId = service.create(movie_1);
+        Movie testMovie = service.read(mId);
 
         assertEquals(movie_1.getId(), testMovie.getId());
         assertEquals(movie_1.getName(), testMovie.getName());
@@ -80,18 +76,20 @@ public class MovieServiceTest {
                 .isEmpty();
     }
 
+
     @Test
     public void updateTest() {
         Integer id = service.create(movie_1);
-        Movie updatedMovie = new Movie("Name", movie_1.getDirector(), movie_1.getType());
-        updatedMovie.setId(0);
-        service.update(updatedMovie);
+        Movie toupdate = new Movie("Name", movie_1.getType(), movie_1.getDirector());
+        toupdate.setId(id);
+        service.update(toupdate);
 
-        assertThat(service.read(0))
-                .isNotNull()
-                .hasNoNullFieldsOrProperties();
+        Movie updatedMovie = service.read(id);
 
-        assertThat(service.read(0).getName()).isNotEqualTo("NotName");
+        assertEquals("Name",updatedMovie.getName() );
+        assertEquals("Type1",updatedMovie.getType() );
+        assertEquals("Director1",updatedMovie.getDirector() );
+
     }
 
     @Test
