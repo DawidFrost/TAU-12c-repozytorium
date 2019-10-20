@@ -23,9 +23,9 @@ public class MovieServiceTest {
     @Before
     public void init() {
         service = new MovieServiceImpl();
-        movie_1 = new Movie("Name_1", "Type1", "Director1");
-        movie_2 = new Movie("Name_2", "Type2", "Director1");
-        movie_3 = new Movie("Name_3", "Type3", "Director3");
+        movie_1 = new Movie("Avatar", "Si-fi", "James Cameron");
+        movie_2 = new Movie("Joker", "Dramat", "Todd Phillips");
+        movie_3 = new Movie("Czarownica", "Fantasy", "Linda Woolverton");
     }
 
     @Test(expected = NoSuchElementException.class)
@@ -80,15 +80,15 @@ public class MovieServiceTest {
     @Test
     public void updateTest() {
         Integer id = service.create(movie_1);
-        Movie toupdate = new Movie("Name", movie_1.getType(), movie_1.getDirector());
+        Movie toupdate = new Movie("Avatar2", movie_1.getType(), movie_1.getDirector());
         toupdate.setId(id);
         service.update(toupdate);
 
         Movie updatedMovie = service.read(id);
 
-        assertEquals("Name",updatedMovie.getName() );
-        assertEquals("Type1",updatedMovie.getType() );
-        assertEquals("Director1",updatedMovie.getDirector() );
+        assertEquals("Avatar2",updatedMovie.getName() );
+        assertEquals("Si-fi",updatedMovie.getType() );
+        assertEquals("James Cameron",updatedMovie.getDirector() );
 
     }
 
