@@ -17,4 +17,6 @@ public interface MovieService {
     void delete(Integer id);
 
     void removeAll();
+
+
 }

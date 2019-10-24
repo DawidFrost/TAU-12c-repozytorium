@@ -1,73 +1,106 @@
 package pl.edu.pjatk.tau.domain;
 
 
-import java.util.Date;
+import java.time.Clock;
+import java.time.LocalDateTime;
+
 
 public class Movie {
     private Integer id;
     private String name;
     private String type;
     private String director;
-    private Date    createObjDateLog;
-    private Date    updateObjDateLog;
-    private Date    readObjDateLog;
-    private boolean actCreateDateLog=true;
-    private boolean actUpdateDateLog;
-    private boolean actReadDateLog;
+    private LocalDateTime createObjDateTime;
+    private LocalDateTime   updateObjDateTime;
+    private LocalDateTime   readObjDateTime;
+    private boolean actCreateDateTime = true;
+    private boolean actUpdateDateTime = true;
+    private boolean actReadDateTime = true;
+    private Clock   clock = Clock.systemDefaultZone();
 
 
     public Movie(String name,String type,String director) {
         this.name = name;
         this.type = type;
         this.director = director;
+
     }
 
-    public Date getCreateObjDateLog() {
-        return createObjDateLog;
+    public LocalDateTime getCreateObjDateTime() {
+        return createObjDateTime;
     }
 
-    public void setCreateObjDateLog(Date createObjDateLog) {
-        this.createObjDateLog = createObjDateLog;
+    public void setCreateObjDateTime() {
+        if (actCreateDateTime) {
+            this.createObjDateTime = LocalDateTime.now(clock);
+        }
     }
 
-    public Date getUpdateObjDateLog() {
-        return updateObjDateLog;
+    public LocalDateTime getUpdateObjDateTime() {
+        return updateObjDateTime;
     }
 
-    public void setUpdateObjDateLog(Date updateObjDateLog) {
-        this.updateObjDateLog = updateObjDateLog;
+    public void setUpdateObjDateTime() {
+        if (actUpdateDateTime) {
+            this.updateObjDateTime = LocalDateTime.now(clock);
+        }
     }
 
-    public Date getReadObjDateLog() {
-        return readObjDateLog;
+    public LocalDateTime getReadObjDateTime() {
+        return readObjDateTime;
     }
 
-    public void setReadObjDateLog(Date readObjDateLog) {
-        this.readObjDateLog = readObjDateLog;
+    public void setReadObjDateTime() {
+        if (actReadDateTime) {
+            this.readObjDateTime = LocalDateTime.now(clock);
+        }
+    }
+    public void actCreateDateTime(boolean flag) {
+        this.actCreateDateTime = flag;
     }
 
-    public boolean isActCreateDateLog() {
-        return actCreateDateLog;
+    public void actUpdateDateTime(boolean flag) {
+        this.actUpdateDateTime = flag;
     }
 
-    public void setActCreateDateLog(boolean actCreateDateLog) {
-        this.actCreateDateLog = actCreateDateLog;
+    public void actReadDateTime(boolean flag) {
+        this.actReadDateTime = flag;
     }
 
-    public boolean isActUpdateDateLog() {
-        return actUpdateDateLog;
+    public boolean isactCreateDateTime() {
+        return actCreateDateTime;
     }
 
-    public void setActUpdateDateLog(boolean actUpdateDateLog) {
-        this.actUpdateDateLog = actUpdateDateLog;
+    public void setactCreateDateTime(boolean actCreateDateTime) {
+        this.actCreateDateTime = actCreateDateTime;
     }
 
-    public boolean isActReadDateLog() {
-        return actReadDateLog;
+    public boolean isactUpdateDateTime() {
+        return actUpdateDateTime;
     }
 
-    public void setActReadDateLog(boolean actReadDateLog) {
-        this.actReadDateLog = actReadDateLog;
+    public void setactUpdateDateTime(boolean actUpdateDateTime) {
+        this.actUpdateDateTime = actUpdateDateTime;
+    }
+
+    public boolean isactReadDateTime() {
+        return actReadDateTime;
+    }
+
+    public void setactReadDateTime(boolean actReadDateTime) {
+        this.actReadDateTime = actReadDateTime;
+    }
+
+    public Clock getClock() {
+        return clock;
+    }
+
+    public void setClock(Clock clock) {
+        this.clock = clock;
+    }
+
+    public LocalDateTime returnClock(){
+        return LocalDateTime.now(clock);
     }
 
     public Integer getId() {

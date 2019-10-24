@@ -1,12 +1,12 @@
 package pl.edu.pjatk.tau;
 
 import org.junit.After;
+
 import pl.edu.pjatk.tau.domain.Movie;
 import org.junit.Before;
 import org.junit.Test;
 import pl.edu.pjatk.tau.service.MovieService;
 import pl.edu.pjatk.tau.service.MovieServiceImpl;
-
 
 import java.util.NoSuchElementException;
 
@@ -26,6 +26,7 @@ public class MovieServiceTest {
         movie_1 = new Movie("Avatar", "Si-fi", "James Cameron");
         movie_2 = new Movie("Joker", "Dramat", "Todd Phillips");
         movie_3 = new Movie("Czarownica", "Fantasy", "Linda Woolverton");
+
     }
 
     @Test(expected = NoSuchElementException.class)
@@ -36,6 +37,7 @@ public class MovieServiceTest {
 
         service.delete(mId);
         service.read(mId);
+
     }
 
 
