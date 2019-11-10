@@ -26,6 +26,13 @@ public class Movie {
 
     }
 
+    public Movie(Integer id, String name, String type, String director) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.director = director;
+    }
+
     public LocalDateTime getCreateObjDateTime() {
         return createObjDateTime;
     }

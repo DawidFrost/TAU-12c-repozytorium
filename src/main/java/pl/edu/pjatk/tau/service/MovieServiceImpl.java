@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.mockito.Mockito.doReturn;
 
@@ -22,6 +24,7 @@ public class MovieServiceImpl implements MovieService {
 
     private static Integer counterID = 0;
     private static List<Movie> db = new ArrayList<>();
+    private String searchString;
 
 
 
@@ -118,6 +121,54 @@ public class MovieServiceImpl implements MovieService {
     private boolean movieExists(Movie movie) {
 
         return findByID(movie.getId()).isPresent();
+    }
+
+
+    public void deleteFromList(ArrayList<Movie> moviesToDelete)
+    {
+
+        for(Movie movie : moviesToDelete)
+        {
+            Integer id = movie.getId();
+
+            if(itHas((movie)))
+            {
+                delete(id);
+            }
+        }
+    }
+
+
+    public  Boolean itHas(Movie movie)
+    {
+        for(Movie m : readAll())
+        {
+            if(m.getId() == movie.getId() && m.getName().equals(movie.getName()) && m.getType().equals(movie.getType()) &&m.getDirector().equals(movie.getDirector()))
+                return true;
+
+        }
+        return false;
+
+    }
+
+    public void setSearchString(String newString)
+    {
+        this.searchString=newString;
+    }
+
+    public ArrayList<Movie> searchWithRegex()
+    {
+        ArrayList<Movie> tempMoviesList = new ArrayList();
+        Pattern p=Pattern.compile("^"+this.searchString.toLowerCase()+"*");
+        for (Movie m: readAll())
+        {
+            Matcher matcher = p.matcher(m.getName().trim().toLowerCase());
+            if(matcher.lookingAt())
+            {
+                tempMoviesList.add(m);
+            }
+        }
+        return tempMoviesList;
     }
 
 }
