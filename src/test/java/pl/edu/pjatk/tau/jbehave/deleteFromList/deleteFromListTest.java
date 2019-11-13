@@ -8,8 +8,13 @@ import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
+import org.junit.After;
+import pl.edu.pjatk.tau.service.MovieService;
+import pl.edu.pjatk.tau.service.MovieServiceImpl;
 
 public class deleteFromListTest extends JUnitStory {
+
+    private MovieService service = new MovieServiceImpl();
 
     @Override
     public Configuration configuration() {
@@ -28,4 +33,8 @@ public class deleteFromListTest extends JUnitStory {
         return new InstanceStepsFactory(configuration(), new deletingStepByStep());
     }
 
+    @After
+    public void removeMovies() {
+        service.removeAll();
+    }
 }

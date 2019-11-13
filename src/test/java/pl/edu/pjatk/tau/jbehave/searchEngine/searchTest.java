@@ -12,9 +12,14 @@ import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
+import org.junit.After;
+import pl.edu.pjatk.tau.service.MovieService;
+import pl.edu.pjatk.tau.service.MovieServiceImpl;
 
 
 public class searchTest extends JUnitStory {
+
+    private MovieService service = new MovieServiceImpl();
 
     @Override
     public Configuration configuration() {
@@ -44,6 +49,11 @@ public class searchTest extends JUnitStory {
     public InjectableStepsFactory stepsFactory() {
 
         return new InstanceStepsFactory(configuration(), new searchingStepByStep());
+    }
+
+    @After
+    public void removeMovies() {
+        service.removeAll();
     }
 
 }
