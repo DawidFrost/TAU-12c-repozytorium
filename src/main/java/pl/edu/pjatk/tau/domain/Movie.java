@@ -33,6 +33,10 @@ public class Movie {
         this.director = director;
     }
 
+    public Movie() {
+
+    }
+
     public LocalDateTime getCreateObjDateTime() {
         return createObjDateTime;
     }
