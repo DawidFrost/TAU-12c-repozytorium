@@ -70,49 +70,18 @@ public class Movie {
         this.actCreateDateTime = flag;
     }
 
-    public void actUpdateDateTime(boolean flag) {
-        this.actUpdateDateTime = flag;
-    }
 
-    public void actReadDateTime(boolean flag) {
-        this.actReadDateTime = flag;
-    }
-
-    public boolean isactCreateDateTime() {
-        return actCreateDateTime;
-    }
-
-    public void setactCreateDateTime(boolean actCreateDateTime) {
-        this.actCreateDateTime = actCreateDateTime;
-    }
-
-    public boolean isactUpdateDateTime() {
-        return actUpdateDateTime;
-    }
 
     public void setactUpdateDateTime(boolean actUpdateDateTime) {
         this.actUpdateDateTime = actUpdateDateTime;
     }
 
-    public boolean isactReadDateTime() {
-        return actReadDateTime;
-    }
 
     public void setactReadDateTime(boolean actReadDateTime) {
         this.actReadDateTime = actReadDateTime;
     }
 
-    public Clock getClock() {
-        return clock;
-    }
 
-    public void setClock(Clock clock) {
-        this.clock = clock;
-    }
-
-    public LocalDateTime returnClock(){
-        return LocalDateTime.now(clock);
-    }
 
     public Integer getId() {
         return id;

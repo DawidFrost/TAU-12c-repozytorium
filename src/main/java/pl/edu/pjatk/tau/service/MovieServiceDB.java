@@ -1,10 +1,18 @@
 package pl.edu.pjatk.tau.service;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import org.springframework.stereotype.Service;
 import pl.edu.pjatk.tau.domain.Movie;
 
-import java.sql.*;
-import java.util.*;
-
+@Service
 public class MovieServiceDB {
 
     private static Integer counterID = 0;
@@ -22,9 +30,7 @@ public class MovieServiceDB {
 
     private PreparedStatement deleteMovieStmt;
 
-
-
-    private PreparedStatement deleteAllMovies;
+    private PreparedStatement deleteAllMoviesStmt;
 
     public Integer createMovie(Movie newMovie) throws SQLException {
 
@@ -35,42 +41,41 @@ public class MovieServiceDB {
         counterID = createMovieStmt.executeUpdate();
         ResultSet generatedKeys = createMovieStmt.getGeneratedKeys();
         if (generatedKeys.next()) {
-            newMovie.setId((int)generatedKeys.getLong(1));
+            newMovie.setId((int) generatedKeys.getLong(1));
         }
         return counterID;
     }
 
-    public List<Movie> readAll() throws SQLException
-    {
+    public List<Movie> readAll() throws SQLException {
         List<Movie> movies = new LinkedList<>();
 
-            ResultSet rs = readMovieStmt.executeQuery();
+        ResultSet rs = readAllMoviesStmt.executeQuery();
 
-            while (rs.next()) {
-                Movie m = new Movie();
-                m.setId(rs.getInt("id"));
-                m.setName(rs.getString("name"));
-                m.setType(rs.getString("type"));
-                m.setDirector(rs.getString("director"));
-                movies.add(m);
-            }
+        while (rs.next()) {
+            Movie m = new Movie();
+            m.setId(rs.getInt("id"));
+            m.setName(rs.getString("name"));
+            m.setType(rs.getString("type"));
+            m.setDirector(rs.getString("director"));
+            movies.add(m);
+        }
 
         return movies;
     }
 
     public Movie readMovieById(Integer id) throws SQLException {
         try {
-            readMovieStmt.setLong(1, id);
-        ResultSet rs = readMovieStmt.executeQuery();
+            readMovieStmt.setInt(1, id);
+            ResultSet rs = readMovieStmt.executeQuery();
 
-        if (rs.next()) {
-            Movie m = new Movie();
-            m.setId(rs.getInt("id"));
-            m.setName(rs.getString("name"));
-            m.setType(rs.getString("type"));
-            m.setDirector(rs.getString("director"));
-            return m;
-        }
+            if (rs.next()) {
+                Movie m = new Movie();
+                m.setId(rs.getInt("id"));
+                m.setName(rs.getString("name"));
+                m.setType(rs.getString("type"));
+                m.setDirector(rs.getString("director"));
+                return m;
+            }
 
         } catch (SQLException e) {
             throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
@@ -78,28 +83,30 @@ public class MovieServiceDB {
         throw new SQLException("Movie with id " + id + " does not exist");
     }
 
-    public Integer updateMovie(Movie updatedMovie) throws SQLException {
+    public Integer updateMovie(Integer id, Movie updatedMovie ) throws SQLException {
 
         int count = 0;
         try {
             updateMovieStmt.setString(1, updatedMovie.getName());
             updateMovieStmt.setString(2, updatedMovie.getType());
             updateMovieStmt.setString(3, updatedMovie.getDirector());
+            updateMovieStmt.setInt( 4,id);
             count = updateMovieStmt.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
         }
-        if (count <= 0)
+        if (count <= 0) {
             throw new java.sql.SQLException("Movie not found");
+        }
 
         return count;
 
     }
 
-    public Integer deleteMovie(Movie deleteMovie) {
+    public int deleteMovie(Integer id) {
 
         try {
-            deleteMovieStmt.setLong(1, deleteMovie.getId());
+            deleteMovieStmt.setInt(1, id);
             return deleteMovieStmt.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
@@ -109,18 +116,10 @@ public class MovieServiceDB {
 
     public int deleteAllMovies() {
         try {
-            return deleteMovieStmt.executeUpdate();
+            return deleteAllMoviesStmt.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
         }
-    }
-
-    public MovieServiceDB(Connection connection) throws SQLException {
-        this.connection = connection;
-        if (!isDatabaseReady()) {
-            createTables();
-        }
-        setConnection(connection);
     }
 
     public MovieServiceDB() throws SQLException {
@@ -133,8 +132,9 @@ public class MovieServiceDB {
 
     public void createTables() throws SQLException {
         connection.createStatement()
-                .executeUpdate("CREATE TABLE " + "Movie(id bigint GENERATED BY DEFAULT AS IDENTITY, "
-                        + "name varchar(20) NOT NULL, " + "type varchar(20) NOT NULL, "+ "director varchar(20) NOT NULL, ");
+                .executeUpdate("CREATE TABLE Movie (id bigint GENERATED BY DEFAULT AS IDENTITY, "
+                        + "name varchar(20) NOT NULL, type varchar(20) NOT NULL, "
+                        + "director varchar(20) NOT NULL)");
     }
 
     public boolean isDatabaseReady() {
@@ -160,21 +160,17 @@ public class MovieServiceDB {
     public void setConnection(Connection connection) throws SQLException {
         this.connection = connection;
         createMovieStmt = connection.prepareStatement(
-                "INSERT INTO Movie (name, type,director) VALUES (?, ?,?)",
+                "INSERT INTO Movie (name, type,director) VALUES (?, ?, ?)",
                 Statement.RETURN_GENERATED_KEYS);
-        deleteMovieStmt = connection.prepareStatement("DELETE FROM Movie where id = ?");
-        deleteMovieStmt = connection.prepareStatement("DELETE FROM Movie");
-        readAllMoviesStmt= connection.prepareStatement("SELECT id, name, type,director  FROM Movie ORDER BY id");
-        readMovieStmt = connection.prepareStatement("SELECT id, name, type,director  FROM Movie WHERE id = ?");
-        updateMovieStmt = connection.prepareStatement("UPDATE Movie SET name=?, type=?,director=? WHERE id = ?");
+        deleteMovieStmt = connection.prepareStatement("DELETE FROM Movie WHERE id = ?");
+        deleteAllMoviesStmt = connection.prepareStatement("DELETE FROM Movie");
+        readAllMoviesStmt = connection
+                .prepareStatement("SELECT id, name, type,director  FROM Movie ORDER BY id");
+        readMovieStmt = connection
+                .prepareStatement("SELECT id, name, type,director  FROM Movie WHERE id = ?");
+        updateMovieStmt = connection
+                .prepareStatement("UPDATE Movie SET name=?, type=?,director=? WHERE id = ?");
     }
-
-
-
-
-
-
-
 
 
 }

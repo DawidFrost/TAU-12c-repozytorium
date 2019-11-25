@@ -1,0 +1,17 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1574708613320,57,addBookRequest,200,OK,Ustawienia 1-1,text,true,,301,249,1,1,56,0,39
+1574708613380,3,addBookRequest,200,OK,Ustawienia 1-1,text,true,,303,251,1,1,3,0,0
+1574708613384,6,addBookRequest,200,OK,Ustawienia 1-1,text,true,,300,248,1,1,6,0,0
+1574708613391,3,addBookRequest,200,OK,Ustawienia 1-1,text,true,,306,254,1,1,3,0,0
+1574708613396,3,addBookRequest,200,OK,Ustawienia 1-1,text,true,,307,255,1,1,3,0,0
+1574708613400,5,addBookRequest,200,OK,Ustawienia 1-1,text,true,,308,256,1,1,4,0,0
+1574708613406,6,addBookRequest,200,OK,Ustawienia 1-1,text,true,,300,248,1,1,5,0,0
+1574708613413,5,addBookRequest,200,OK,Ustawienia 1-1,text,true,,310,258,1,1,5,0,0
+1574708613419,4,addBookRequest,200,OK,Ustawienia 1-1,text,true,,307,255,1,1,3,0,0
+1574708613522,17,selectAllImovies,null 0,java.sql.SQLException: Cannot load JDBC driver class 'org.hsqldb.jdbc.JDBCDriver',Grupa wątków 1-1,text,false,,58,0,1,1,0,0,17
+1574708613541,3,getAllMoviesRequest,404,Not Found,Grupa wątków 1-1,text,false,Test failed: text expected to contain /name/,534,122,1,1,2,0,1
+1574708613547,0,deleteMovie,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in path at index 29: http://localhost:8080/movie/${ID_2},Grupa wątków 1-1,text,false,,1170,0,1,1,0,0,0
+1574708613550,0,getDeletedMovie,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in path at index 29: http://localhost:8080/movie/${ID_2},Grupa wątków 1-1,text,false,Response was null,1170,0,1,1,0,0,0
+1574708613551,0,updateMovie,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in path at index 29: http://localhost:8080/movie/${ID_1},Grupa wątków 1-1,text,false,,1170,0,1,1,0,0,0
+1574708613553,0,getUpdatedMovie,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in path at index 29: http://localhost:8080/movie/${ID_1},Grupa wątków 1-1,text,false,Test failed: text expected to contain /Avatar555/,1170,0,1,1,0,0,0
+1574708613567,2,dbCleanup,null 0,java.sql.SQLException: Cannot load JDBC driver class 'org.hsqldb.jdbc.JDBCDriver',tearDown Thread Group 1-1,text,false,,58,0,1,1,0,0,2
