@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200107 18:55:41.718" generator="Robot 3.1.2 (Python 2.7.15+ on linux2)">
+<suite source="/home/david/IdeaProjects/filmweb/RobotFramework/consoleTest/test_shapes.robot" id="s1" name="Test Shapes">
+<test id="s1-t1" name="Check Triangle Nierozpoznano">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>./Shell/T_Nierozpoznano.sh</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200107 18:55:41.760" level="INFO">Starting process:
+./Shell/T_Nierozpoznano.sh</msg>
+<msg timestamp="20200107 18:55:41.764" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200107 18:55:41.974" level="INFO">Process completed.</msg>
+<msg timestamp="20200107 18:55:41.975" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20200107 18:55:41.975" starttime="20200107 18:55:41.760"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>nierozpoznano</arg>
+</arguments>
+<status status="PASS" endtime="20200107 18:55:41.977" starttime="20200107 18:55:41.976"></status>
+</kw>
+<status status="PASS" endtime="20200107 18:55:41.977" critical="yes" starttime="20200107 18:55:41.759"></status>
+</test>
+<test id="s1-t2" name="Check Triangle Rownoboczny">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>./Shell/T_Rownoboczny.sh</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200107 18:55:41.980" level="INFO">Starting process:
+./Shell/T_Rownoboczny.sh</msg>
+<msg timestamp="20200107 18:55:41.984" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200107 18:55:42.126" level="INFO">Process completed.</msg>
+<msg timestamp="20200107 18:55:42.127" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20200107 18:55:42.127" starttime="20200107 18:55:41.979"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>trojkat_rownoboczny</arg>
+</arguments>
+<status status="PASS" endtime="20200107 18:55:42.129" starttime="20200107 18:55:42.128"></status>
+</kw>
+<status status="PASS" endtime="20200107 18:55:42.130" critical="yes" starttime="20200107 18:55:41.978"></status>
+</test>
+<test id="s1-t3" name="Check Triangle Rownoramienny">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>./Shell/T_Rownoramienny.sh</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200107 18:55:42.133" level="INFO">Starting process:
+./Shell/T_Rownoramienny.sh</msg>
+<msg timestamp="20200107 18:55:42.139" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200107 18:55:42.271" level="INFO">Process completed.</msg>
+<msg timestamp="20200107 18:55:42.272" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20200107 18:55:42.272" starttime="20200107 18:55:42.132"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>trojkat_rownoramienny</arg>
+</arguments>
+<status status="PASS" endtime="20200107 18:55:42.274" starttime="20200107 18:55:42.273"></status>
+</kw>
+<status status="PASS" endtime="20200107 18:55:42.274" critical="yes" starttime="20200107 18:55:42.131"></status>
+</test>
+<test id="s1-t4" name="Check Triangle Roznoramienny">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>./Shell/T_Roznoramienny.sh</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200107 18:55:42.277" level="INFO">Starting process:
+./Shell/T_Roznoramienny.sh</msg>
+<msg timestamp="20200107 18:55:42.283" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200107 18:55:42.414" level="INFO">Process completed.</msg>
+<msg timestamp="20200107 18:55:42.415" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20200107 18:55:42.415" starttime="20200107 18:55:42.276"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>trojkat_roznoramienny</arg>
+</arguments>
+<status status="PASS" endtime="20200107 18:55:42.417" starttime="20200107 18:55:42.416"></status>
+</kw>
+<status status="PASS" endtime="20200107 18:55:42.417" critical="yes" starttime="20200107 18:55:42.275"></status>
+</test>
+<test id="s1-t5" name="Check Quadrangle Nierozpoznano">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>./Shell/Q_Nierozpoznano.sh</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200107 18:55:42.419" level="INFO">Starting process:
+./Shell/Q_Nierozpoznano.sh</msg>
+<msg timestamp="20200107 18:55:42.425" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200107 18:55:42.579" level="INFO">Process completed.</msg>
+<msg timestamp="20200107 18:55:42.580" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20200107 18:55:42.580" starttime="20200107 18:55:42.419"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>nierozpoznano</arg>
+</arguments>
+<status status="PASS" endtime="20200107 18:55:42.583" starttime="20200107 18:55:42.581"></status>
+</kw>
+<status status="PASS" endtime="20200107 18:55:42.583" critical="yes" starttime="20200107 18:55:42.418"></status>
+</test>
+<test id="s1-t6" name="Check Quadrangle Kwadrat">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>./Shell/Q_Kwadrat.sh</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200107 18:55:42.586" level="INFO">Starting process:
+./Shell/Q_Kwadrat.sh</msg>
+<msg timestamp="20200107 18:55:42.593" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200107 18:55:42.727" level="INFO">Process completed.</msg>
+<msg timestamp="20200107 18:55:42.728" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20200107 18:55:42.728" starttime="20200107 18:55:42.585"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>kwadrat</arg>
+</arguments>
+<status status="PASS" endtime="20200107 18:55:42.731" starttime="20200107 18:55:42.729"></status>
+</kw>
+<status status="PASS" endtime="20200107 18:55:42.731" critical="yes" starttime="20200107 18:55:42.584"></status>
+</test>
+<test id="s1-t7" name="Check Quadrangle Prostokat">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>./Shell/Q_Prostokat.sh</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200107 18:55:42.734" level="INFO">Starting process:
+./Shell/Q_Prostokat.sh</msg>
+<msg timestamp="20200107 18:55:42.740" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200107 18:55:42.879" level="INFO">Process completed.</msg>
+<msg timestamp="20200107 18:55:42.880" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20200107 18:55:42.880" starttime="20200107 18:55:42.733"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>prostokat</arg>
+</arguments>
+<status status="PASS" endtime="20200107 18:55:42.882" starttime="20200107 18:55:42.881"></status>
+</kw>
+<status status="PASS" endtime="20200107 18:55:42.883" critical="yes" starttime="20200107 18:55:42.732"></status>
+</test>
+<test id="s1-t8" name="Check Quadrangle Czworobok">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>./Shell/Q_Czworobok.sh</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200107 18:55:42.886" level="INFO">Starting process:
+./Shell/Q_Czworobok.sh</msg>
+<msg timestamp="20200107 18:55:42.892" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200107 18:55:43.028" level="INFO">Process completed.</msg>
+<msg timestamp="20200107 18:55:43.029" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20200107 18:55:43.029" starttime="20200107 18:55:42.885"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>czworobok</arg>
+</arguments>
+<status status="PASS" endtime="20200107 18:55:43.030" starttime="20200107 18:55:43.029"></status>
+</kw>
+<status status="PASS" endtime="20200107 18:55:43.031" critical="yes" starttime="20200107 18:55:42.884"></status>
+</test>
+<doc>Test shapes.
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<status status="PASS" endtime="20200107 18:55:43.031" starttime="20200107 18:55:41.720"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="8">Critical Tests</stat>
+<stat fail="0" pass="8">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test Shapes" pass="8">Test Shapes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

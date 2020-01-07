@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200106 14:27:19.589" generator="Robot 3.1.2 (Python 2.7.15+ on linux2)">
+<suite id="s1" name="InvalidLogin &amp; LogInAndLogOut &amp; LoginSucces &amp; InvalidPassword">
+<suite source="/home/david/IdeaProjects/filmweb/RobotFramework/webTest/InvalidLogin.robot" id="s1-s1" name="InvalidLogin">
+<test id="s1-s1-t1" name="Invalid Email">
+<kw type="setup" name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Open Browser</arg>
+<arg>http://automationpractice.com/index.php</arg>
+<arg>${BROWSER}</arg>
+<arg>AND</arg>
+<arg>Set Selenium Speed</arg>
+<arg>${SELSPEED}</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://automationpractice.com/index.php</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:19.772" level="INFO">Opening browser 'firefox' to base url 'http://automationpractice.com/index.php'.</msg>
+<msg timestamp="20200106 14:27:19.773" level="INFO">Firefox driver log is always forced to to: /home/david/IdeaProjects/filmweb/RobotFramework/webTest/geckodriver-1.log</msg>
+<status status="PASS" endtime="20200106 14:27:28.505" starttime="20200106 14:27:19.771"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${SELSPEED}</arg>
+</arguments>
+<status status="PASS" endtime="20200106 14:27:28.507" starttime="20200106 14:27:28.506"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:28.507" starttime="20200106 14:27:19.771"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>link=Sign in</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:28.509" level="INFO">Clicking element 'link=Sign in'.</msg>
+<status status="PASS" endtime="20200106 14:27:31.140" starttime="20200106 14:27:28.508"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:31.140" starttime="20200106 14:27:28.508"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>id=email</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:31.142" level="INFO">Clicking element 'id=email'.</msg>
+<status status="PASS" endtime="20200106 14:27:31.435" starttime="20200106 14:27:31.141"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:31.435" starttime="20200106 14:27:31.140"></status>
+</kw>
+<kw name="type">
+<arguments>
+<arg>id=email</arg>
+<arg>qwerty</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:31.436" level="INFO">Typing text 'qwerty' into text field 'id=email'.</msg>
+<status status="PASS" endtime="20200106 14:27:31.509" starttime="20200106 14:27:31.436"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:31.509" starttime="20200106 14:27:31.435"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email address'])[1]/following::h3[1]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:31.511" level="INFO">Clicking element 'xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email address'])[1]/following::h3[1]'.</msg>
+<status status="PASS" endtime="20200106 14:27:31.776" starttime="20200106 14:27:31.511"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:31.777" starttime="20200106 14:27:31.510"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>id=passwd</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:31.780" level="INFO">Clicking element 'id=passwd'.</msg>
+<status status="PASS" endtime="20200106 14:27:32.032" starttime="20200106 14:27:31.779"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:32.032" starttime="20200106 14:27:31.777"></status>
+</kw>
+<kw name="type">
+<arguments>
+<arg>id=passwd</arg>
+<arg>zaq1@WSX</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:32.035" level="INFO">Typing text 'zaq1@WSX' into text field 'id=passwd'.</msg>
+<status status="PASS" endtime="20200106 14:27:32.105" starttime="20200106 14:27:32.034"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:32.105" starttime="20200106 14:27:32.033"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:32.107" level="INFO">Clicking element 'xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]'.</msg>
+<status status="PASS" endtime="20200106 14:27:33.033" starttime="20200106 14:27:32.107"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:33.033" starttime="20200106 14:27:32.106"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200106 14:27:35.137" starttime="20200106 14:27:33.034"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:35.138" critical="yes" starttime="20200106 14:27:19.769"></status>
+</test>
+<status status="PASS" endtime="20200106 14:27:35.140" starttime="20200106 14:27:19.618"></status>
+</suite>
+<suite source="/home/david/IdeaProjects/filmweb/RobotFramework/webTest/LogInAndLogOut.robot" id="s1-s2" name="LogInAndLogOut">
+<test id="s1-s2-t1" name="WebTest">
+<kw type="setup" name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Open Browser</arg>
+<arg>http://automationpractice.com/index.php?controller=authentication&amp;back=my-account</arg>
+<arg>${BROWSER}</arg>
+<arg>AND</arg>
+<arg>Set Selenium Speed</arg>
+<arg>${SELSPEED}</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://automationpractice.com/index.php?controller=authentication&amp;back=my-account</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:35.158" level="INFO">Opening browser 'firefox' to base url 'http://automationpractice.com/index.php?controller=authentication&amp;back=my-account'.</msg>
+<msg timestamp="20200106 14:27:35.159" level="INFO">Firefox driver log is always forced to to: /home/david/IdeaProjects/filmweb/RobotFramework/webTest/geckodriver-2.log</msg>
+<status status="PASS" endtime="20200106 14:27:42.952" starttime="20200106 14:27:35.158"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${SELSPEED}</arg>
+</arguments>
+<status status="PASS" endtime="20200106 14:27:42.954" starttime="20200106 14:27:42.953"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:42.954" starttime="20200106 14:27:35.157"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>id=email</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:42.956" level="INFO">Clicking element 'id=email'.</msg>
+<status status="PASS" endtime="20200106 14:27:43.252" starttime="20200106 14:27:42.955"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:43.252" starttime="20200106 14:27:42.955"></status>
+</kw>
+<kw name="type">
+<arguments>
+<arg>id=email</arg>
+<arg>maxoyac752@email1.pro</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:43.255" level="INFO">Typing text 'maxoyac752@email1.pro' into text field 'id=email'.</msg>
+<status status="PASS" endtime="20200106 14:27:43.376" starttime="20200106 14:27:43.254"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:43.377" starttime="20200106 14:27:43.253"></status>
+</kw>
+<kw name="type">
+<arguments>
+<arg>id=passwd</arg>
+<arg>zaq1@WSX</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:43.380" level="INFO">Typing text 'zaq1@WSX' into text field 'id=passwd'.</msg>
+<status status="PASS" endtime="20200106 14:27:43.474" starttime="20200106 14:27:43.379"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:43.474" starttime="20200106 14:27:43.377"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:43.477" level="INFO">Clicking element 'xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]'.</msg>
+<status status="PASS" endtime="20200106 14:27:44.955" starttime="20200106 14:27:43.476"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:44.955" starttime="20200106 14:27:43.475"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>link=Sign out</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:44.960" level="INFO">Clicking element 'link=Sign out'.</msg>
+<status status="PASS" endtime="20200106 14:27:47.281" starttime="20200106 14:27:44.959"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:47.281" starttime="20200106 14:27:44.956"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Authentication'])[1]/following::div[3]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:47.283" level="INFO">Clicking element 'xpath=(.//*[normalize-space(text()) and normalize-space(.)='Authentication'])[1]/following::div[3]'.</msg>
+<status status="PASS" endtime="20200106 14:27:47.555" starttime="20200106 14:27:47.283"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:47.555" starttime="20200106 14:27:47.282"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200106 14:27:49.603" starttime="20200106 14:27:47.556"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:49.603" critical="yes" starttime="20200106 14:27:35.157"></status>
+</test>
+<status status="PASS" endtime="20200106 14:27:49.605" starttime="20200106 14:27:35.145"></status>
+</suite>
+<suite source="/home/david/IdeaProjects/filmweb/RobotFramework/webTest/LoginSucces.robot" id="s1-s3" name="LoginSucces">
+<test id="s1-s3-t1" name="Login Succesfull">
+<kw type="setup" name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Open Browser</arg>
+<arg>http://automationpractice.com/index.php?controller=authentication&amp;back=my-account</arg>
+<arg>${BROWSER}</arg>
+<arg>AND</arg>
+<arg>Set Selenium Speed</arg>
+<arg>${SELSPEED}</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://automationpractice.com/index.php?controller=authentication&amp;back=my-account</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:49.620" level="INFO">Opening browser 'firefox' to base url 'http://automationpractice.com/index.php?controller=authentication&amp;back=my-account'.</msg>
+<msg timestamp="20200106 14:27:49.621" level="INFO">Firefox driver log is always forced to to: /home/david/IdeaProjects/filmweb/RobotFramework/webTest/geckodriver-3.log</msg>
+<status status="PASS" endtime="20200106 14:27:57.987" starttime="20200106 14:27:49.620"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${SELSPEED}</arg>
+</arguments>
+<status status="PASS" endtime="20200106 14:27:57.988" starttime="20200106 14:27:57.987"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:57.988" starttime="20200106 14:27:49.619"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>id=email</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:57.990" level="INFO">Clicking element 'id=email'.</msg>
+<status status="PASS" endtime="20200106 14:27:58.277" starttime="20200106 14:27:57.989"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:58.277" starttime="20200106 14:27:57.989"></status>
+</kw>
+<kw name="type">
+<arguments>
+<arg>id=email</arg>
+<arg>maxoyac752@email1.pro</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:58.280" level="INFO">Typing text 'maxoyac752@email1.pro' into text field 'id=email'.</msg>
+<status status="PASS" endtime="20200106 14:27:58.400" starttime="20200106 14:27:58.279"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:58.401" starttime="20200106 14:27:58.278"></status>
+</kw>
+<kw name="type">
+<arguments>
+<arg>id=passwd</arg>
+<arg>zaq1@WSX</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:58.402" level="INFO">Typing text 'zaq1@WSX' into text field 'id=passwd'.</msg>
+<status status="PASS" endtime="20200106 14:27:58.499" starttime="20200106 14:27:58.402"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:27:58.499" starttime="20200106 14:27:58.401"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:27:58.501" level="INFO">Clicking element 'xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]'.</msg>
+<status status="PASS" endtime="20200106 14:28:00.139" starttime="20200106 14:27:58.501"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:00.139" starttime="20200106 14:27:58.500"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200106 14:28:03.237" starttime="20200106 14:28:00.140"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:03.237" critical="yes" starttime="20200106 14:27:49.619"></status>
+</test>
+<status status="PASS" endtime="20200106 14:28:03.239" starttime="20200106 14:27:49.609"></status>
+</suite>
+<suite source="/home/david/IdeaProjects/filmweb/RobotFramework/webTest/InvalidPassword.robot" id="s1-s4" name="InvalidPassword">
+<test id="s1-s4-t1" name="InvalidPassword">
+<kw type="setup" name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Open Browser</arg>
+<arg>http://automationpractice.com/index.php</arg>
+<arg>${BROWSER}</arg>
+<arg>AND</arg>
+<arg>Set Selenium Speed</arg>
+<arg>${SELSPEED}</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://automationpractice.com/index.php</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200106 14:28:03.255" level="INFO">Opening browser 'firefox' to base url 'http://automationpractice.com/index.php'.</msg>
+<msg timestamp="20200106 14:28:03.256" level="INFO">Firefox driver log is always forced to to: /home/david/IdeaProjects/filmweb/RobotFramework/webTest/geckodriver-4.log</msg>
+<status status="PASS" endtime="20200106 14:28:12.606" starttime="20200106 14:28:03.255"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${SELSPEED}</arg>
+</arguments>
+<status status="PASS" endtime="20200106 14:28:12.609" starttime="20200106 14:28:12.607"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:12.609" starttime="20200106 14:28:03.254"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>link=Sign in</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:28:12.610" level="INFO">Clicking element 'link=Sign in'.</msg>
+<status status="PASS" endtime="20200106 14:28:15.114" starttime="20200106 14:28:12.610"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:15.114" starttime="20200106 14:28:12.609"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>id=email</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:28:15.117" level="INFO">Clicking element 'id=email'.</msg>
+<status status="PASS" endtime="20200106 14:28:15.419" starttime="20200106 14:28:15.116"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:15.420" starttime="20200106 14:28:15.115"></status>
+</kw>
+<kw name="type">
+<arguments>
+<arg>id=email</arg>
+<arg>maxoyac752@email1.pro</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200106 14:28:15.423" level="INFO">Typing text 'maxoyac752@email1.pro' into text field 'id=email'.</msg>
+<status status="PASS" endtime="20200106 14:28:15.543" starttime="20200106 14:28:15.422"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:15.543" starttime="20200106 14:28:15.420"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>id=passwd</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:28:15.545" level="INFO">Clicking element 'id=passwd'.</msg>
+<status status="PASS" endtime="20200106 14:28:15.823" starttime="20200106 14:28:15.544"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:15.824" starttime="20200106 14:28:15.543"></status>
+</kw>
+<kw name="type">
+<arguments>
+<arg>id=passwd</arg>
+<arg>asss</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>${value}</arg>
+</arguments>
+<msg timestamp="20200106 14:28:15.826" level="INFO">Typing text 'asss' into text field 'id=passwd'.</msg>
+<status status="PASS" endtime="20200106 14:28:15.874" starttime="20200106 14:28:15.826"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:15.874" starttime="20200106 14:28:15.824"></status>
+</kw>
+<kw name="click">
+<arguments>
+<arg>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200106 14:28:15.876" level="INFO">Clicking element 'xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]'.</msg>
+<status status="PASS" endtime="20200106 14:28:16.803" starttime="20200106 14:28:15.875"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:16.803" starttime="20200106 14:28:15.875"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200106 14:28:18.872" starttime="20200106 14:28:16.804"></status>
+</kw>
+<status status="PASS" endtime="20200106 14:28:18.873" critical="yes" starttime="20200106 14:28:03.253"></status>
+</test>
+<status status="PASS" endtime="20200106 14:28:18.875" starttime="20200106 14:28:03.244"></status>
+</suite>
+<status status="PASS" endtime="20200106 14:28:18.883" starttime="20200106 14:27:19.591"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="4">Critical Tests</stat>
+<stat fail="0" pass="4">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="InvalidLogin &amp; LogInAndLogOut &amp; LoginSucces &amp; InvalidPassword" pass="4">InvalidLogin &amp; LogInAndLogOut &amp; LoginSucces &amp; InvalidPassword</stat>
+<stat fail="0" id="s1-s1" name="InvalidLogin" pass="1">InvalidLogin &amp; LogInAndLogOut &amp; LoginSucces &amp; InvalidPassword.InvalidLogin</stat>
+<stat fail="0" id="s1-s2" name="LogInAndLogOut" pass="1">InvalidLogin &amp; LogInAndLogOut &amp; LoginSucces &amp; InvalidPassword.LogInAndLogOut</stat>
+<stat fail="0" id="s1-s3" name="LoginSucces" pass="1">InvalidLogin &amp; LogInAndLogOut &amp; LoginSucces &amp; InvalidPassword.LoginSucces</stat>
+<stat fail="0" id="s1-s4" name="InvalidPassword" pass="1">InvalidLogin &amp; LogInAndLogOut &amp; LoginSucces &amp; InvalidPassword.InvalidPassword</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
